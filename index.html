@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solal — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── CURSOR ── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ── CANVAS PARTICLES ── -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Solal<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link">Accueil</a></li>
+      <li><a href="#about" class="nav-link">À propos</a></li>
+      <li><a href="#skills" class="nav-link">Compétences</a></li>
+      <li><a href="#competencies" class="nav-link">BTS SIO</a></li>
+      <li><a href="#projects" class="nav-link">Projets</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollToSection('contact')">Me contacter</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Disponible pour alternance / stage
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span class="line">Bonjour, je suis</span>
+        <span class="line gradient-text">Solal</span>
+      </h1>
+      <p class="hero-subtitle reveal-up delay-2">
+        Étudiant en <strong>BTS SIO</strong> · Administrateur Systèmes &amp; Réseaux<br />
+        Passionné par la cybersécurité, l'infrastructure cloud et le développement web.
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <button class="btn-primary" onclick="scrollToSection('projects')">
+          Voir mes projets
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-ghost" onclick="scrollToSection('contact')">Contact</button>
+      </div>
+      <div class="hero-tech-stack reveal-up delay-4">
+        <span class="tech-pill">Linux</span>
+        <span class="tech-pill">Azure</span>
+        <span class="tech-pill">Kali Linux</span>
+        <span class="tech-pill">PHP</span>
+        <span class="tech-pill">GLPI</span>
+        <span class="tech-pill">Nmap</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="terminal-card reveal-right">
+        <div class="terminal-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">terminal</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$</span> <span class="cmd typed" id="typedCmd"></span><span class="caret" id="caret">|</span></div>
+          <div class="terminal-output" id="termOutput"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label reveal-up">À PROPOS</div>
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <h2 class="section-title">Un profil <span class="gradient-text">polyvalent</span><br />en informatique</h2>
+          <p>Étudiant en BTS Services Informatiques aux Organisations (SIO), je développe des compétences solides dans l'administration des systèmes et réseaux, la cybersécurité et le développement web.</p>
+          <p>Mon parcours m'a permis de travailler avec des technologies variées : du déploiement d'infrastructure cloud sur <strong>Azure</strong>, à l'administration de systèmes <strong>Linux/Windows Server</strong>, en passant par l'utilisation d'outils comme <strong>GLPI</strong> pour la gestion de parc informatique.</p>
+          <p>Curieux et rigoureux, j'apprécie particulièrement les défis liés à la cybersécurité et à l'analyse de réseaux avec des outils comme <strong>Nmap</strong> et <strong>Kali Linux</strong>.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Technologies maîtrisées</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-label">Compétences BTS validées</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="2">0</span>
+              <span class="stat-label">Ans de formation</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal-right">
+          <div class="profile-card">
+            <div class="profile-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-inner">S</div>
+            </div>
+            <div class="profile-info">
+              <h3>Solal</h3>
+              <p>BTS SIO — Systèmes &amp; Réseaux</p>
+            </div>
+            <div class="profile-tags">
+              <span class="tag">🔒 Cybersécurité</span>
+              <span class="tag">☁️ Cloud Azure</span>
+              <span class="tag">🐧 Linux</span>
+              <span class="tag">🌐 Web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label reveal-up">COMPÉTENCES TECHNIQUES</div>
+      <h2 class="section-title centered reveal-up">Mon <span class="gradient-text">arsenal</span> technologique</h2>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal-up delay-1">
+          <div class="skill-cat-icon">🖥️</div>
+          <h3>Systèmes d'exploitation</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>Kali Linux</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Debian / Ubuntu</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Windows Server</span><span class="skill-pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal-up delay-2">
+          <div class="skill-cat-icon">🌐</div>
+          <h3>Développement Web</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>HTML / CSS</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>JavaScript</span><span class="skill-pct">72%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>PHP</span><span class="skill-pct">70%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal-up delay-3">
+          <div class="skill-cat-icon">☁️</div>
+          <h3>Cloud &amp; Infrastructure</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>Microsoft Azure</span><span class="skill-pct">78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>GLPI</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Serveur Web</span><span class="skill-pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal-up delay-4">
+          <div class="skill-cat-icon">🔐</div>
+          <h3>Cybersécurité &amp; Réseau</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>Nmap</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Analyse réseau</span><span class="skill-pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Trello / Gestion de projet</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech icons grid -->
+      <div class="tech-icons-row reveal-up">
+        <div class="tech-icon-card" data-tooltip="Linux">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#FCC624" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">🐧</text></svg>
+          <span>Linux</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="Azure">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#0078D4" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">☁️</text></svg>
+          <span>Azure</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="Kali Linux">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#557C94" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">🔒</text></svg>
+          <span>Kali</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="PHP">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#8892BF" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">🐘</text></svg>
+          <span>PHP</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="JavaScript">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#F7DF1E" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">⚡</text></svg>
+          <span>JS</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="GLPI">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#FF6B6B" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">🖥️</text></svg>
+          <span>GLPI</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="Nmap">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#00D2FF" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">🔍</text></svg>
+          <span>Nmap</span>
+        </div>
+        <div class="tech-icon-card" data-tooltip="Trello">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#0079BF" opacity=".15"/><text x="24" y="30" text-anchor="middle" font-size="20">📋</text></svg>
+          <span>Trello</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPETENCES BTS SIO ── -->
+  <section id="competencies">
+    <div class="container">
+      <div class="section-label reveal-up">BTS SIO — RÉFÉRENTIEL</div>
+      <h2 class="section-title centered reveal-up">Compétences <span class="gradient-text">professionnelles</span></h2>
+      <p class="section-subtitle reveal-up">Référentiel officiel du BTS Services Informatiques aux Organisations</p>
+
+      <div class="comp-grid">
+
+        <div class="comp-card reveal-up delay-1">
+          <div class="comp-header">
+            <div class="comp-badge">C1</div>
+            <div class="comp-title-group">
+              <h3>Recensement des ressources numériques</h3>
+              <span class="comp-status validated">Validée</span>
+            </div>
+          </div>
+          <p class="comp-desc">Identification et inventaire des ressources numériques disponibles au sein d'une organisation.</p>
+          <div class="comp-tools">
+            <span class="tool-tag">PHP</span>
+            <span class="tool-tag">HTML/CSS</span>
+            <span class="tool-tag">JS</span>
+            <span class="tool-tag">GLPI</span>
+            <span class="tool-tag">Azure</span>
+            <span class="tool-tag">Nmap</span>
+            <span class="tool-tag">Kali Linux</span>
+            <span class="tool-tag">Debian</span>
+            <span class="tool-tag">Ubuntu</span>
+            <span class="tool-tag">Windows Server</span>
+          </div>
+          <a href="documents/C1_Recenser_ressources_numeriques.docx" download class="comp-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Télécharger la fiche
+          </a>
+        </div>
+
+        <div class="comp-card reveal-up delay-2">
+          <div class="comp-header">
+            <div class="comp-badge">C7</div>
+            <div class="comp-title-group">
+              <h3>Collecte et suivi des demandes</h3>
+              <span class="comp-status validated">Validée</span>
+            </div>
+          </div>
+          <p class="comp-desc">Collecte, suivi et orientation des demandes des utilisateurs via un système de ticketing.</p>
+          <div class="comp-tools">
+            <span class="tool-tag">GLPI</span>
+          </div>
+          <a href="documents/C7_Collecter_suivre_orienter_demandes.docx" download class="comp-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Télécharger la fiche
+          </a>
+        </div>
+
+        <div class="comp-card reveal-up delay-3">
+          <div class="comp-header">
+            <div class="comp-badge">C11</div>
+            <div class="comp-title-group">
+              <h3>Référencement des services en ligne</h3>
+              <span class="comp-status validated">Validée</span>
+            </div>
+          </div>
+          <p class="comp-desc">Référencement et mesure de la visibilité des services en ligne d'une organisation.</p>
+          <div class="comp-tools">
+            <span class="tool-tag">Azure</span>
+          </div>
+          <a href="documents/C11_Referencer_services_en_ligne.docx" download class="comp-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Télécharger la fiche
+          </a>
+        </div>
+
+        <div class="comp-card reveal-up delay-4">
+          <div class="comp-header">
+            <div class="comp-badge">C14</div>
+            <div class="comp-title-group">
+              <h3>Planification des activités</h3>
+              <span class="comp-status validated">Validée</span>
+            </div>
+          </div>
+          <p class="comp-desc">Organisation et planification des tâches en équipe, rôle de meneur de projet.</p>
+          <div class="comp-tools">
+            <span class="tool-tag">Trello</span>
+            <span class="tool-tag">Gestion de projet</span>
+            <span class="tool-tag">Management</span>
+          </div>
+          <a href="documents/C14_Planifier_les_activites.docx" download class="comp-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Télécharger la fiche
+          </a>
+        </div>
+
+        <div class="comp-card reveal-up delay-5">
+          <div class="comp-header">
+            <div class="comp-badge">C17</div>
+            <div class="comp-title-group">
+              <h3>Déploiement d'un service</h3>
+              <span class="comp-status validated">Validée</span>
+            </div>
+          </div>
+          <p class="comp-desc">Mise en production et déploiement de services informatiques en environnement cloud et on-premise.</p>
+          <div class="comp-tools">
+            <span class="tool-tag">GLPI</span>
+            <span class="tool-tag">Azure</span>
+            <span class="tool-tag">Serveur Web</span>
+          </div>
+          <a href="documents/C17_Deployer_un_service.docx" download class="comp-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Télécharger la fiche
+          </a>
+        </div>
+
+      </div>
+
+      <!-- PDF Tableau des compétences -->
+      <div class="pdf-section reveal-up">
+        <div class="pdf-header">
+          <h3>Tableau officiel des compétences</h3>
+          <a href="tableau%20excel%20comp%C3%A9tence%202.0.pdf" download class="btn-primary">
+            Télécharger le PDF
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+        <div class="pdf-embed-wrapper">
+          <embed src="tableau%20excel%20comp%C3%A9tence%202.0.pdf" type="application/pdf" class="pdf-embed" />
+          <p class="pdf-fallback">
+            Votre navigateur ne peut pas afficher ce PDF.
+            <a href="tableau%20excel%20comp%C3%A9tence%202.0.pdf" target="_blank">Cliquez ici pour l'ouvrir.</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label reveal-up">RÉALISATIONS</div>
+      <h2 class="section-title centered reveal-up">Mes <span class="gradient-text">projets</span></h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card featured reveal-up delay-1">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🏗️</div>
+            <div class="project-links">
+              <span class="project-tag">Infrastructure</span>
+            </div>
+          </div>
+          <h3>Déploiement GLPI sur Azure</h3>
+          <p>Mise en place d'un système de gestion de parc informatique GLPI hébergé sur Microsoft Azure. Configuration complète du serveur, intégration de la base de données et mise en production.</p>
+          <div class="project-stack">
+            <span>Azure</span><span>GLPI</span><span>Linux</span><span>PHP</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-2">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🔍</div>
+            <div class="project-links">
+              <span class="project-tag">Cybersécurité</span>
+            </div>
+          </div>
+          <h3>Audit réseau avec Nmap</h3>
+          <p>Analyse et cartographie d'un réseau informatique via Nmap depuis Kali Linux. Identification des services, ports ouverts et vulnérabilités potentielles.</p>
+          <div class="project-stack">
+            <span>Nmap</span><span>Kali Linux</span><span>Réseau</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-3">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🌐</div>
+            <div class="project-links">
+              <span class="project-tag">Web</span>
+            </div>
+          </div>
+          <h3>Serveur Web Azure</h3>
+          <p>Déploiement et configuration d'un serveur web sur Microsoft Azure. Gestion des ressources cloud, mise en place des règles de sécurité et configuration DNS.</p>
+          <div class="project-stack">
+            <span>Azure</span><span>HTML/CSS</span><span>PHP</span><span>JS</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-4">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">📋</div>
+            <div class="project-links">
+              <span class="project-tag">Management</span>
+            </div>
+          </div>
+          <h3>Gestion de projet Trello</h3>
+          <p>Organisation et pilotage de projets informatiques en équipe via Trello. Définition des sprints, attribution des tâches et suivi de l'avancement.</p>
+          <div class="project-stack">
+            <span>Trello</span><span>Agile</span><span>Management</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label reveal-up">CONTACT</div>
+      <h2 class="section-title centered reveal-up">Travaillons <span class="gradient-text">ensemble</span></h2>
+      <p class="section-subtitle reveal-up">Disponible pour une alternance, un stage ou une opportunité professionnelle.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">votre.email@exemple.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <span class="contact-label">Localisation</span>
+                <span class="contact-value">France</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🎓</div>
+              <div>
+                <span class="contact-label">Formation</span>
+                <span class="contact-value">BTS SIO — Systèmes &amp; Réseaux</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div>
+                <span class="contact-label">Disponibilité</span>
+                <span class="contact-value">Alternance / Stage 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-right" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" placeholder="Votre nom" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="votre@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" placeholder="Objet de votre message" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Votre message..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">
+            Envoyer le message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>Solal<span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-text">Étudiant BTS SIO · Passionné d'informatique</p>
+        <div class="footer-links">
+          <a href="#hero">Accueil</a>
+          <a href="#skills">Compétences</a>
+          <a href="#competencies">BTS SIO</a>
+          <a href="#projects">Projets</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="footer-copy">© 2025 Solal — Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
